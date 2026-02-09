@@ -45,7 +45,7 @@ body[data-theme="dark"] .admin-wrap{background:var(--bg)}
 .admin-list__left{display:flex;gap:12px;align-items:center}
 .avatar{width:44px;height:44px;border-radius:10px;background:var(--card2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
 .admin-list__info strong{display:block;font-size:15px;color:var(--admin-text-light)}
-.admin-list__info .email{font-size:13px;color:rgba(255,255,255,0.8)}
+.admin-list__info .email{font-size:13px;color:#000000}
 .admin-list__row .controls{display:flex;gap:8px;align-items:center}
 .admin-list__row select{padding:8px;border-radius:8px;background:rgba(255,255,255,0.2);color:var(--admin-text-light);border:1px solid rgba(255,255,255,0.3)}
 .btn--danger{background:var(--admin-danger);padding:8px 12px;border-radius:8px;color:white;border:none}
