@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/login.css"/>
+  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+        <a class="btn btn--ghost" href="index.html">Home</a>
+        <a class="btn btn--primary" href="register.html">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="auth">
+      <div class="panel">
+        <div class="panel__pad">
+          <h1>Welcome back</h1>
+          <p>Login to write reviews, rate movies, and manage your profile.</p>
+
+          <div class="divider"></div>
+
+          <form id="loginForm" class="form" novalidate>
+            <div class="row">
+              <label class="label" for="email">Email</label>
+              <input id="email" class="field" type="email" placeholder="you@example.com" required />
+              <div id="emailErr" class="err hidden"></div>
+            </div>
+
+            <div class="row">
+              <label class="label" for="password">Password</label>
+              <input id="password" class="field" type="password" placeholder="Min 6 characters" required />
+              <div id="passErr" class="err hidden"></div>
+            </div>
+
+            <div class="row">
+              <label class="label" for="loginRole">Login as</label>
+              <select id="loginRole" class="field">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+              </select>
+              <div id="loginRoleErr" class="err hidden"></div>
+            </div>
+
+            <div class="actions">
+              <button id="loginBtn" class="btn btn--primary" type="submit">Login</button>
+              <a class="smalllink" href="register.html">No account? Register →</a>
+            </div>
+
+            <div id="formErr" class="err hidden"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/authPages.js"></script>
+</body>
+</html>

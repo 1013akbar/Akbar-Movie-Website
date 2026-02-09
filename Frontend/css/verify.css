@@ -1,0 +1,118 @@
+.verify-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--col-primary-dark), var(--col-primary-light));
+}
+
+.verify-panel {
+  background: var(--col-bg);
+  border: 1px solid var(--col-border);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.verify-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.verify-panel h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--col-text);
+}
+
+.verify-panel p {
+  color: var(--col-text-dim);
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--col-border);
+  border-top: 4px solid var(--col-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.verify-message {
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+.verify-message.success {
+  background-color: rgba(40, 200, 100, 0.2);
+  color: #28c864;
+  border: 1px solid rgba(40, 200, 100, 0.4);
+}
+
+.verify-message.error {
+  background-color: rgba(255, 100, 100, 0.2);
+  color: #ff6464;
+  border: 1px solid rgba(255, 100, 100, 0.4);
+}
+
+.verify-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn--primary {
+  background: var(--col-primary);
+  color: white;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--col-primary-light);
+  transform: translateY(-2px);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--col-primary);
+  border: 1px solid var(--col-primary);
+}
+
+.btn--ghost:hover {
+  background: var(--col-primary);
+  color: white;
+}
+
+.resend-timer {
+  color: var(--col-text-dim);
+  font-size: 14px;
+  margin-top: 15px;
+}

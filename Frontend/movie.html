@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/movie.css"/>
+  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+
+        <div id="nav-auth" class="navgroup">
+          <a class="btn btn--ghost" href="login.html">Login</a>
+          <a class="btn btn--primary" href="register.html">Register</a>
+        </div>
+
+        <div id="nav-user" class="navgroup hidden">
+          <a class="btn btn--ghost" href="my-reviews.html">My Reviews</a>
+          <a class="btn btn--ghost" href="profile.html">Profile</a>
+          <button class="btn btn--danger" id="logoutBtn">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="movie">
+      <div class="panel">
+        <div class="pad">
+          <div class="posterBox">
+            <img id="poster" alt="Movie poster" />
+          </div>
+          <div style="display:flex;gap:10px;margin-top:12px;">
+            <button id="playTrailer" class="btn btn--primary" style="width:100%;">Play trailer</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="pad">
+          <h1 id="title" class="title">Movie</h1>
+          <div class="meta" id="meta"></div>
+          <p id="desc" class="help"></p>
+
+          <div style="margin-top:14px;">
+            <h2 style="margin:0 0 6px;">Write your review</h2>
+            <p class="help">Login required. Rating is from 1 to 10.</p>
+
+            <form id="reviewForm" class="reviewForm" novalidate>
+              <div>
+                <div class="label">Rating</div>
+                <div id="stars" class="stars"></div>
+                <div id="ratingErr" class="err hidden"></div>
+              </div>
+
+              <div class="row">
+                <label class="label" for="reviewText">Review</label>
+                <textarea id="reviewText" class="field" rows="5" placeholder="Write your thoughts... (optional)"></textarea>
+                <div class="help">Max 2000 characters.</div>
+              </div>
+
+              <label style="display:flex;gap:10px;align-items:center;">
+                <input id="spoilers" type="checkbox" />
+                <span class="help">Contains spoilers</span>
+              </label>
+
+              <button id="saveReviewBtn" class="btn btn--primary" type="submit">Save review</button>
+              <div id="formErr" class="err hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Trailer Modal -->
+  <div id="trailerModal" class="modal" aria-hidden="true">
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Trailer modal">
+      <div class="modal__head">
+        <strong id="trailerTitle">Trailer</strong>
+        <button id="closeTrailer" class="iconbtn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal__body">
+        <div class="ratio">
+          <iframe id="trailerFrame" title="Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/moviePage.js"></script>
+</body>
+</html>

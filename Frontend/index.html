@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__dot"></span>
+        <span>MovieHub</span>
+      </a>
+
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+
+        <div id="nav-auth" class="navgroup">
+          <a class="btn btn--ghost" href="login.html">Login</a>
+          <a class="btn btn--primary" href="register.html">Register</a>
+        </div>
+
+        <div id="nav-user" class="navgroup hidden">
+          <a class="btn btn--ghost" href="my-reviews.html">My Reviews</a>
+          <a class="btn btn--ghost" href="profile.html">Profile</a>
+          <button class="btn btn--danger" id="logoutBtn">Logout</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- HERO / FEATURED -->
+    <section class="hero" id="hero">
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <p class="pill">Trending • Featured</p>
+        <h1 id="heroTitle">Browse movies, watch trailers, write reviews.</h1>
+        <p id="heroDesc" class="hero__desc">
+          Discover popular movies from The Movie Database (TMDB). Login to see films powered by real-time data, write reviews, and rate your favorites.
+        </p>
+
+        <div class="hero__actions">
+          <a id="heroOpenBtn" class="btn btn--primary" href="movie.html">Open details</a>
+          <button id="heroTrailerBtn" class="btn btn--ghost">Play trailer</button>
+        </div>
+
+        <div class="hero__meta" id="heroMeta"></div>
+        <p style="margin-top: 12px; font-size: 12px; opacity: 0.8;"><strong>📊 Data Source:</strong> The Movie Database (TMDB) API - Real-time popular movies curated daily</p>
+      </div>
+
+      <div class="hero__fade"></div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="controls">
+      <div class="controls__row">
+        <div class="search">
+          <span class="search__icon">🔎</span>
+          <input id="searchInput" class="search__input" placeholder="Search movies (e.g., Inception, Matrix)..." />
+          <button id="clearSearch" class="iconbtn" title="Clear search" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="controls__right">
+          <span class="count" id="countLabel">0 movies</span>
+        </div>
+      </div>
+
+      <div class="chips" id="chips"></div>
+    </section>
+
+    <!-- GRID -->
+    <section class="gridwrap">
+      <div id="moviesGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <!-- Trailer Modal -->
+  <div id="trailerModal" class="modal" aria-hidden="true">
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Trailer modal">
+      <div class="modal__head">
+        <strong id="trailerTitle">Trailer</strong>
+        <button id="closeTrailer" class="iconbtn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal__body">
+        <div class="ratio">
+          <iframe id="trailerFrame" title="Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/movies.js"></script>
+</body>
+</html>

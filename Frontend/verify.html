@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify Email • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/verify.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="verify-container">
+    <div class="verify-panel">
+      <div id="verifyContent">
+        <div class="verify-icon">📧</div>
+        <h1>Verify Your Email</h1>
+        <p>We're verifying your email address...</p>
+        <div class="spinner"></div>
+      </div>
+
+      <div id="verificationResult" style="display: none;">
+        <div id="resultMessage"></div>
+        <div class="verify-actions">
+          <button id="loginBtn" class="btn btn--primary" onclick="window.location.href='login.html'">Go to Login</button>
+          <a href="index.html" class="btn btn--ghost">Go Home</a>
+        </div>
+      </div>
+
+      <div id="resendSection" style="display: none;">
+        <p style="margin-top: 20px; color: var(--col-text-dim);">Verification link expired?</p>
+        <button id="resendBtn" class="btn btn--ghost" style="margin-top: 10px;">Resend Verification Email</button>
+        <div id="resendMessage"></div>
+        <div class="resend-timer" id="resendTimer"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/verify.js"></script>
+  <script type="module" src="js/theme.js"></script>
+</body>
+</html>

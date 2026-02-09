@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/profile.css"/>
+  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+  <style>
+    .role-badge { display:inline-block; padding:4px 10px; border-radius:6px; color:#fff; font-weight:600; }
+    .role-badge.user { background:#6c757d; }
+    .role-badge.premium { background:#6f42c1; }
+    .role-badge.moderator { background:#fd7e14; }
+    .role-badge.admin { background:#198754; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+        <a class="btn btn--ghost" href="index.html">Home</a>
+        <a class="btn btn--ghost" href="my-reviews.html">My Reviews</a>
+        <button class="btn btn--danger" id="logoutBtn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="profile">
+      <div class="card">
+        <div class="card__pad">
+          <h2>Your profile</h2>
+          <div class="kv"><span class="label">Username</span><span id="pUsername">—</span></div>
+          <div class="kv"><span class="label">Email</span><span id="pEmail">—</span></div>
+          <div class="kv"><span class="label">Role</span><span id="pRole" class="role-badge">—</span></div>
+          <div class="kv"><span class="label">User ID</span><span id="pId">—</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__pad">
+          <h2>Update profile</h2>
+          <p class="help">Change your username or email. Email must be unique.</p>
+
+          <form id="profileForm" style="display:flex;flex-direction:column;gap:12px;margin-top:12px;">
+            <div class="row">
+              <label class="label" for="username">Username</label>
+              <input id="username" class="field" type="text" placeholder="New username" />
+              <div id="userErr" class="err hidden"></div>
+            </div>
+
+            <div class="row">
+              <label class="label" for="email">Email</label>
+              <input id="email" class="field" type="email" placeholder="New email" />
+              <div id="emailErr" class="err hidden"></div>
+            </div>
+
+            <button id="saveBtn" class="btn btn--primary" type="submit">Save changes</button>
+            <div id="formErr" class="err hidden"></div>
+          </form>
+        </div>
+      </div>
+
+        <div class="card">
+          <div class="card__pad">
+            <h2>Admin</h2>
+            <p class="help">Admin-only actions</p>
+            <a id="adminLink" class="btn btn--primary" href="admin-dashboard.html" style="display:none; margin-top:8px;">Open Admin Dashboard</a>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/profilePage.js"></script>
+</body>
+</html>

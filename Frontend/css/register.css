@@ -1,0 +1,4 @@
+/* Reuse auth layout, just small tweaks */
+@import url("./login.css");
+
+.panel h1{font-size: 32px}

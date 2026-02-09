@@ -1,0 +1,114 @@
+.movie{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 900px){
+  .movie{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px){
+  .movie{
+    margin-top: 12px;
+    gap: 10px;
+  }
+}
+.panel{
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow2);
+  overflow:hidden;
+}
+.pad{padding: 18px}
+.posterBox{
+  aspect-ratio: 2 / 3;
+  border-radius: 18px;
+  overflow:hidden;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.18);
+}
+
+@media (max-width: 640px){
+  .post
+  margin:0 0 8px;
+  font-size: 34px;
+  letter-spacing:-.6px;
+}
+
+@media (max-width: 640px){
+  .title{
+    font-size: 26px;
+  }
+
+    border-radius: 14px;
+    max-width: 240px;
+  }
+}
+.posterBox img{width:100%;height:100%;object-fit:cover;display:block}
+
+.title{margin:0 0 8px;font-size: 34px;letter-spacing:-.6px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tag{
+  paddi
+  display:flex;
+  gap:6px;
+  height:34px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card2);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  font-weight: 900;
+  transition: .18s ease;
+}
+
+.star:hover{
+  border-color: rgba(229,9,20,.35);
+  background: rgba(229,9,20,.05);
+}
+
+.star.active{
+  border-color: rgba(229,9,20,.45);
+  background: rgba(229,9,20,.15);
+}
+
+@media (max-width: 480px){
+  .star{
+    width: 32px;
+    height: 32px;
+  };
+  background: rgba(0,0,0,.18);
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+}
+html[data-theme="light"] .tag{
+  background: rgba(255,255,255,.70);
+  border-color: rgba(0,0,0,.12);
+}
+
+.reviewForm{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.stars{display:flex;gap:6px;flex-wrap:wrap}
+.star{
+  width: 34px;height:34px;border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card2);
+  display:grid;place-items:center;
+  cursor:pointer;
+  font-weight: 900;
+}
+.star.active{
+  border-color: rgba(229,9,20,.45);
+  background: rgba(229,9,20,.15);
+}
+
+@media (max-width: 900px){
+  .movie{grid-template-columns:1fr}
+}

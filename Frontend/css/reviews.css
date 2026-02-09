@@ -1,0 +1,123 @@
+.reviews{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 640px){
+  .reviews{
+    margin-top: 12px;
+    gap: 10px;
+  }
+}
+
+.card{
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow2);
+  overflow:hidden;
+  transition: .18s ease;
+}
+
+.card:hover{
+  border-color: rgba(229,9,20,.25);
+  box-shadow: 0 12px 40px rgba(229,9,20,.15);
+}
+
+.pad{
+  padding: 18px;
+}
+
+@media (max-width: 640px){
+  .pad{
+    padding: 14px;
+  }
+}
+
+.headerRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.table th,
+.table td{
+  text-align:left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.table th{
+  color:var(--muted);
+  font-weight:900;
+}
+
+.table tr:hover{
+  background: rgba(229,9,20,.05);
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.small{
+  padding:8px 10px;
+  border-radius:12px;
+  font-size: 13px;
+}
+
+@media (max-width: 720px){
+  .table thead{
+    display:none;
+  }
+
+  .table tr{
+    display:block;
+    border:1px solid var(--border);
+    border-radius:16px;
+    margin-top:10px;
+    padding:10px;
+    background: var(--card2);
+  }
+
+  .table td{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:none;
+    padding:6px 0;
+  }
+
+  .table td:before{
+    content: attr(data-label);
+    font-weight: 700;
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px){
+  .pad{
+    padding: 12px;
+  }
+
+  .actions{
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .actions .btn{
+    width: 100%;
+  }
+}

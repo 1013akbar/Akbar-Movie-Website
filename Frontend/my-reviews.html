@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reviews • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/reviews.css"/>  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script></head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+        <a class="btn btn--ghost" href="index.html">Home</a>
+        <a class="btn btn--ghost" href="profile.html">Profile</a>
+        <button class="btn btn--danger" id="logoutBtn">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="reviews">
+      <div class="card">
+        <div class="pad">
+          <div class="headerRow">
+            <div>
+              <h2 style="margin:0 0 6px;">My Reviews</h2>
+              <p class="help" style="margin:0;">Edit or delete your saved reviews.</p>
+            </div>
+            <a class="btn btn--primary" href="index.html">Browse movies</a>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Movie</th>
+                <th>Rating</th>
+                <th>Spoilers</th>
+                <th>Updated</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+
+          <div id="empty" class="help hidden" style="margin-top:12px;">
+            You have no reviews yet. Open a movie and create one.
+          </div>
+
+          <div id="err" class="err hidden" style="margin-top:12px;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal" aria-hidden="true">
+    <div class="modal__card" role="dialog" aria-modal="true" aria-label="Edit review">
+      <div class="modal__head">
+        <strong id="editTitle">Edit review</strong>
+        <button id="closeEdit" class="iconbtn" aria-label="Close">✕</button>
+      </div>
+      <div class="modal__body">
+        <form id="editForm" style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <div class="label">Rating (1–10)</div>
+            <input id="editRating" class="field" type="number" min="1" max="10" required />
+          </div>
+
+          <div class="row">
+            <label class="label" for="editText">Review</label>
+            <textarea id="editText" class="field" rows="5"></textarea>
+          </div>
+
+          <label style="display:flex;gap:10px;align-items:center;">
+            <input id="editSpoilers" type="checkbox" />
+            <span class="help">Contains spoilers</span>
+          </label>
+
+          <button id="saveEditBtn" class="btn btn--primary" type="submit">Save changes</button>
+          <div id="editErr" class="err hidden"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/reviewsPage.js"></script>
+</body>
+</html>

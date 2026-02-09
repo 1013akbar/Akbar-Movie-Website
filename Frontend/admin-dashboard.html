@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard • MovieHub</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+  <link rel="stylesheet" href="css/admin_dashboard.css" />
+  <script>
+    const savedTheme = localStorage.getItem('moviehub_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html"><span class="brand__dot"></span><span>MovieHub</span></a>
+      <nav class="topbar__nav">
+        <button id="themeToggle" class="iconbtn" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button>
+        <a class="btn btn--ghost" href="index.html">Home</a>
+        <a id="logoutBtn" class="btn btn--ghost">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <div class="admin-page">
+      <div class="admin-hero">
+        <h1>Admin Dashboard</h1>
+        <div class="controls">
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="refreshBtn" class="btn btn--ghost">Refresh</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panels">
+        <section class="panel">
+          <h2>Users</h2>
+          <div id="usersList">Loading users…</div>
+        </section>
+
+        <section class="panel">
+          <h2>Reviews</h2>
+          <div id="reviewsList">Loading reviews…</div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/adminDashboard.js"></script>
+</body>
+</html>
