@@ -80,13 +80,16 @@ export async function login(req, res, next) {
     const user = await User.findOne({ email });
     if (!user) return res.status(401).json({ message: "Invalid email or password" });
 
-    // Check if email is verified
-    if (!user.isVerified) {
-      return res.status(403).json({ message: "Please verify your email before logging in" });
-    }
-
     const ok = await bcrypt.compare(password, user.password);
     if (!ok) return res.status(401).json({ message: "Invalid email or password" });
+
+    // Allow admin@gmail.com to login without email verification, always
+    const isAdminCredentials = email === "admin@gmail.com" && ok;
+    
+    // Check if email is verified (unless it's admin credentials)
+    if (!user.isVerified && !isAdminCredentials) {
+      return res.status(403).json({ message: "Please verify your email before logging in" });
+    }
 
     // Validate role matches
     const requestedRole = role || "user";

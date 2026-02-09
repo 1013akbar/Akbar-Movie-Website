@@ -15,13 +15,20 @@ try {
   let admin = await User.findOne({ role: "admin" });
   if (!admin) {
     const hash = await bcrypt.hash(password, 10);
-    admin = await User.create({ username, email, password: hash, role: "admin" });
+    admin = await User.create({ 
+      username, 
+      email, 
+      password: hash, 
+      role: "admin",
+      isVerified: true 
+    });
     console.log("Created admin:", admin._id.toString());
   } else {
     // Update existing admin to use provided credentials
     admin.email = email;
     admin.username = username;
     admin.password = await bcrypt.hash(password, 10);
+    admin.isVerified = true;
     await admin.save();
     console.log("Updated existing admin:", admin._id.toString());
   }
